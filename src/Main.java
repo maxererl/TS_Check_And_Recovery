@@ -5,8 +5,9 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
 
-        String url = "D:/Work/TSRecovery_ForRoman/id/id.m3u8";
-        // file:///D:/Work/TSRecovery_ForRoman/id/id.m3u8
+        // Path for test
+        String url = "examples/id/id.m3u8";
+        // file:///pathToJavaFile/examples/id/id.m3u8
         // create m3u8 from mp4
         // ffmpeg -i big.mp4 -vf scale=640:240 -g 60 -hls_time 2 -hls_list_size 0 -hls_segment_size 500000 output.m3u8
 

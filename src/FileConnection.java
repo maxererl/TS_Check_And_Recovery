@@ -15,16 +15,16 @@ public class FileConnection  {
         // Check that ref is url
         try {
             new URI(ref).toURL();
-            return Path.of(ref.replace("file:///", "")).getParent().resolve(url).toString().replace("\\", "/");
+            return ref.replace("/[^/\\]+", url).replace("\\", "/");
         } catch (MalformedURLException | URISyntaxException | IllegalArgumentException ignored) {}
         try {
             if (!Path.of(url).isAbsolute()) {
                 return Path.of(ref).getParent().resolve(url).toString().replace("\\", "/");
             }
+            return url;
         } catch (Exception e) {
             return "http://empty";
         }
-        return url;
     }
 
     public static URL createURL(String url) throws URISyntaxException, MalformedURLException {
