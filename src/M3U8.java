@@ -1,5 +1,5 @@
 import java.io.*;
-import java.net.*;
+import java.net.URISyntaxException;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -11,7 +11,7 @@ public class M3U8 {
         // Parsing m3u8.
         List<String> M3u8Lines;
         // Normalizing path
-        m3u8FilePath = FileConnection.resolveAbsolutePath(m3u8FilePath, System.getProperty("user.dir")+"\\.\\");
+        m3u8FilePath = FileConnection.resolveAbsolutePath(m3u8FilePath.replace("\\", "/"), System.getProperty("user.dir")+ File.separator +"."+ File.separator);
         try {
             M3u8Lines = FileConnection.readFile(m3u8FilePath);
         } catch(IOException | URISyntaxException e) {

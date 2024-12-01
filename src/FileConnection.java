@@ -15,7 +15,7 @@ public class FileConnection  {
         // Check that ref is url
         try {
             new URI(ref).toURL();
-            return ref.replace("/[^/\\]+", url).replace("\\", "/");
+            return ref.replaceAll("/[^/\\\\]+", url).replace("\\", "/");
         } catch (MalformedURLException | URISyntaxException | IllegalArgumentException ignored) {}
         try {
             if (!Path.of(url).isAbsolute()) {
